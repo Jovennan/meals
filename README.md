@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is part of my studies on course -[Aprenda Flutter e Desenvolva Apps Para Android e IOS 2021](https://www.udemy.com/course/curso-flutter/learn/lecture/18455040#overview).
 
 A few resources to get you started if this is your first Flutter project:
 
