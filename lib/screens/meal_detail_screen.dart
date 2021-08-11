@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  final Function(Meal) onToggleFavorite;
+  final Function(Meal) isFavorite;
   Widget _createSectionTitle(BuildContext context, String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -25,7 +27,8 @@ class MealDetailScreen extends StatelessWidget {
     );
   }
 
-  const MealDetailScreen({Key? key}) : super(key: key);
+  const MealDetailScreen({Key? key, required this.onToggleFavorite, required this.isFavorite})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,9 @@ class MealDetailScreen extends StatelessWidget {
                         ),
                         title: Text(meal.steps[index]),
                       ),
-                      Divider(color: Colors.grey[500],),
+                      Divider(
+                        color: Colors.grey[500],
+                      ),
                     ],
                   );
                 },
@@ -84,6 +89,14 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(isFavorite(meal) ? Icons.star : Icons.star_border),   
+          
+        onPressed: () {
+          onToggleFavorite(meal);
+          // Navigator.of(context).pop(meal.title);
+        },
       ),
     );
   }
